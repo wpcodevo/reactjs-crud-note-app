@@ -30,9 +30,8 @@ function AppContent() {
     },
     onError(error: any) {
       const resMessage =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
+        error.response.data.message ||
+        error.response.data.detail ||
         error.message ||
         error.toString();
       toast(resMessage, {

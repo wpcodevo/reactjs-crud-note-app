@@ -54,9 +54,8 @@ const UpdateNote: FC<IUpdateNoteProps> = ({ note, setOpenNoteModal }) => {
     onError(error: any) {
       setOpenNoteModal(false);
       const resMessage =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
+        error.response.data.message ||
+        error.response.data.detail ||
         error.message ||
         error.toString();
       toast(resMessage, {

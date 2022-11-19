@@ -51,9 +51,8 @@ const CreateNote: FC<ICreateNoteProps> = ({ setOpenNoteModal }) => {
       setOpenNoteModal(false);
       NProgress.done();
       const resMessage =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
+        error.response.data.message ||
+        error.response.data.detail ||
         error.message ||
         error.toString();
       toast(resMessage, {
