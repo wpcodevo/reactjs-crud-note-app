@@ -13,7 +13,7 @@ export const noteApi = axios.create({
 noteApi.defaults.headers.common["Content-Type"] = "application/json";
 
 export const createNoteFn = async (note: CreateNoteInput) => {
-  const response = await noteApi.post<INoteResponse>("notes", note);
+  const response = await noteApi.post<INoteResponse>("notes/", note);
   return response.data;
 };
 
@@ -23,11 +23,12 @@ export const updateNoteFn = async (noteId: string, note: UpdateNoteInput) => {
 };
 
 export const deleteNoteFn = async (noteId: string) => {
-  const response = await noteApi.delete<null>(`notes/${noteId}`);
+  return noteApi.delete<null>(`notes/${noteId}`);
 };
 
 export const getSingleNoteFn = async (noteId: string) => {
   const response = await noteApi.get<INoteResponse>(`notes/${noteId}`);
+  return response.data;
 };
 
 export const getNotesFn = async (page = 1, limit = 10) => {
