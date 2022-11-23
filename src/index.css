@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 #nprogress .bar {
-    background: #ffbb00 !important;
+    background: #66ffff !important;
     height: 3px !important;
 }
 
 #nprogress .spinner .spinner-icon {
     width: 22px;
     height: 22px;
-    border-top-color: #ffbb00 !important;
-    border-left-color: #ffbb00 !important;
+    border-top-color: #66ffff !important;
+    border-left-color: #66ffff !important;
 }
 
 #nprogress .spinner {
@@ -26,5 +26,5 @@ html{
 }
 
 body{
-    background-color: #88abff;
+    background-color: #e35def;
 }
