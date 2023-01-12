@@ -10,7 +10,7 @@ export const noteApi = axios.create({
   withCredentials: true,
 });
 
-noteApi.defaults.headers.common["Content-Type"] = "application/json";
+// noteApi.defaults.headers.common["content-type"] = "application/json";
 
 export const createNoteFn = async (note: CreateNoteInput) => {
   const response = await noteApi.post<INoteResponse>("notes/", note);
