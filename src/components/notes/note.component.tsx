@@ -17,6 +17,23 @@ const NoteItem: FC<NoteItemProps> = ({ note }) => {
   const [openSettings, setOpenSettings] = useState(false);
   const [openNoteModal, setOpenNoteModal] = useState(false);
 
+  // My addition
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      const dropdown = document.getElementById("settings-dropdown");
+
+      if (dropdown && !dropdown.contains(target)) {
+        setOpenSettings(false);
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
+
   const queryClient = useQueryClient();
   const { mutate: deleteNote } = useMutation({
     mutationFn: (noteId: string) => deleteNoteFn(noteId),
