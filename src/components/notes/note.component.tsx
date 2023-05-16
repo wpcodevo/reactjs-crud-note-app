@@ -21,7 +21,7 @@ const NoteItem: FC<NoteItemProps> = ({ note }) => {
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      const dropdown = document.getElementById("settings-dropdown");
+      const dropdown = document.getElementById(`settings-dropdown-${note.id}`);
 
       if (dropdown && !dropdown.contains(target)) {
         setOpenSettings(false);
@@ -93,7 +93,7 @@ const NoteItem: FC<NoteItemProps> = ({ note }) => {
             <i className="bx bx-dots-horizontal-rounded"></i>
           </div>
           <div
-            id="settings-dropdown"
+            id={`settings-dropdown-${note.id}`}
             className={twMerge(
               `absolute right-0 bottom-3 z-10 w-28 text-base list-none bg-white rounded divide-y divide-gray-100 shadow`,
               `${openSettings ? "block" : "hidden"}`
