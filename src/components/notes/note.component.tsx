@@ -32,7 +32,7 @@ const NoteItem: FC<NoteItemProps> = ({ note }) => {
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
-  }, []);
+  }, [note.id]);
 
   const queryClient = useQueryClient();
   const { mutate: deleteNote } = useMutation({
